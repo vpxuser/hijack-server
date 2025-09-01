@@ -1,0 +1,15 @@
+logLevel: 4
+skip: true
+report: true
+cert: config/hijack.crt
+key: config/hijack.key
+host: 0.0.0.0
+port: 8084
+headers: config/headers.yml
+qrcode: config/qrcode.yml
+imageURL: https://img95.699pic.com/xsj/0x/3k/lt.jpg!/fh/300
+qrcodeURL: https://www.baidu.com
+image: config/hijack.png
+html: config/hijack.html
+targets: config/target.list
+template: config/template.html

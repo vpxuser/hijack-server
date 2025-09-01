@@ -1,0 +1,27 @@
+# 安全响应头
+security-headers:
+  - Content-Security-Policy
+  - X-Content-Type-Options
+  - X-Frame-Options
+  - Strict-Transport-Security
+  - Referrer-Policy
+  - Permissions-Policy
+  - Feature-Policy
+  - Expect-CT
+  - Cross-Origin-Resource-Policy
+  - Cross-Origin-Embedder-Policy
+  - Cross-Origin-Opener-Policy
+  - Access-Control-Allow-Origin
+# 缓存响应头
+cache-headers:
+  - Cache-Control
+  - Pragma
+  - Expires
+  - ETag
+  - Last-Modified
+  - If-Modified-Since
+  - If-None-Match
+  - Age
+  - Vary
+  - Warning
+  - Clear-Site-Data
