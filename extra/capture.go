@@ -17,6 +17,7 @@ import (
 )
 
 func CaptureServer() {
+	proxy.Info("抓包服务地址：0.0.0.0:8080")
 	var (
 		cert *x509.Certificate
 		key  crypto.PrivateKey

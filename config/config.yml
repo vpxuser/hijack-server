@@ -1,4 +1,5 @@
 logLevel: 4
+hotspot: true
 skip: true
 report: true
 cert: config/hijack.crt

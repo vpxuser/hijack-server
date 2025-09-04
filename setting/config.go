@@ -8,6 +8,7 @@ import (
 
 type Config struct {
 	LogLevel  proxy.Level `yaml:"logLevel"`
+	Hotspot   bool        `yaml:"hotspot"`
 	Skip      bool        `yaml:"skip"`
 	Report    bool        `yaml:"report"`
 	Cert      string      `yaml:"cert"`

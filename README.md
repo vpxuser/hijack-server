@@ -1,5 +1,21 @@
 # 劫持工具V2使用说明
 
+## 注意事项
+
+- **当前只支持linux操作系统**
+- **请确保开启劫持的服务器已接入网卡**
+- **请重点关注配置文件config/config.yml里的hotspot配置，为true时开启WiFi劫持，为false时开启http代理劫持，如果操作系统是windows建议直接设置为false，并直接执行二进制文件**
+- **脚本启动后若要开启WiFi劫持，需要按照提示输入劫持服务所在的端口号，端口号必须和配置文件config/config.yml里的port配置一样**
+
+## 启动教程
+
+```bash
+# 启动劫持热点和服务
+bash hijack_wifi.sh start
+# 关闭劫持热点和服务
+bash hijack_wifi.sh stop
+```
+
 ## 服务介绍
 
 **本劫持工具有以下三个服务：**
@@ -20,6 +36,8 @@
 #当为debug等级时，控制台会打印完整的请求和响应快照
 #默认日志等级为info
 logLevel: 4
+#true：开启wifi劫持模式，false：使用http代理劫持模式
+hotspot: true
 #跳过ssl劫持失败的地址
 #在第一次劫持失败后，后续再遇到这个失败的地址会不进行劫持
 #如果这个地址存在被多个http client调用的情况，可能会存在漏测，若漏测，可设置为false

@@ -14,18 +14,22 @@ func init() {
 }
 
 func main() {
-	go hijackServer()
 	go extra.CaptureServer()
-	extra.FileServer()
+	go extra.FileServer()
+	hijackServer()
 }
 
 func hijackServer() {
 	cfg := proxy.NewConfig(proxy.From(setting.Cert, setting.Key))
+	if setting.Cfg.Hotspot {
+		cfg.Negotiator = hook.TProxy
+	}
 	cfg.Dispatcher = hook.ConnectHandler
 	cfg.ClientTLSConfig.InsecureSkipVerify = true
 	cfg.WithReqMatcher().Handle(handler.Request)
 	cfg.WithRespMatcher().Handle(handler.Response)
 	addr := net.JoinHostPort(setting.Cfg.Host, setting.Cfg.Port)
+	proxy.Infof("劫持服务地址：%s", addr)
 	err := proxy.ListenAndServe(addr, cfg)
 	if err != nil {
 		proxy.Fatal(err)
