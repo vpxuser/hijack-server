@@ -6,7 +6,6 @@ import (
 	"hijack-server/handler"
 	"hijack-server/hook"
 	"hijack-server/setting"
-	"net"
 )
 
 func init() {
@@ -28,9 +27,8 @@ func hijackServer() {
 	cfg.ClientTLSConfig.InsecureSkipVerify = true
 	cfg.WithReqMatcher().Handle(handler.Request)
 	cfg.WithRespMatcher().Handle(handler.Response)
-	addr := net.JoinHostPort(setting.Cfg.Host, setting.Cfg.Port)
-	proxy.Infof("劫持服务地址：%s", addr)
-	err := proxy.ListenAndServe(addr, cfg)
+	proxy.Infof("劫持服务地址：%s", setting.Cfg.Host)
+	err := proxy.ListenAndServe(setting.Cfg.Host, cfg)
 	if err != nil {
 		proxy.Fatal(err)
 	}

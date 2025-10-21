@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"github.com/google/uuid"
 	"github.com/vpxuser/proxy"
+	"hijack-server/setting"
 	"hijack-server/tools"
 	"io"
 	"net/http"
@@ -17,7 +18,7 @@ import (
 )
 
 func CaptureServer() {
-	proxy.Info("抓包服务地址：0.0.0.0:8080")
+	proxy.Infof("抓包服务地址：%s", setting.Cfg.CaptureHost)
 	var (
 		cert *x509.Certificate
 		key  crypto.PrivateKey
@@ -92,7 +93,7 @@ func CaptureServer() {
 		return resp
 	})
 
-	if err := proxy.ListenAndServe("0.0.0.0:8080", cfg); err != nil {
+	if err := proxy.ListenAndServe(setting.Cfg.CaptureHost, cfg); err != nil {
 		proxy.Fatal(err)
 	}
 }

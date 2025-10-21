@@ -7,22 +7,23 @@ import (
 )
 
 type Config struct {
-	LogLevel  proxy.Level `yaml:"logLevel"`
-	Hotspot   bool        `yaml:"hotspot"`
-	Skip      bool        `yaml:"skip"`
-	Report    bool        `yaml:"report"`
-	Cert      string      `yaml:"cert"`
-	Key       string      `yaml:"key"`
-	Host      string      `yaml:"host"`
-	Port      string      `yaml:"port"`
-	Targets   string      `yaml:"targets"`
-	Headers   string      `yaml:"headers"`
-	QRCode    string      `yaml:"qrcode"`
-	ImageURL  string      `yaml:"imageURL"`
-	QRCodeURL string      `yaml:"qrcodeURL"`
-	Image     string      `yaml:"image"`
-	Html      string      `yaml:"html"`
-	Template  string      `yaml:"template"`
+	LogLevel       proxy.Level `yaml:"logLevel"`
+	Hotspot        bool        `yaml:"hotspot"`
+	Skip           bool        `yaml:"skip"`
+	Report         bool        `yaml:"report"`
+	Cert           string      `yaml:"cert"`
+	Key            string      `yaml:"key"`
+	Host           string      `yaml:"host"`
+	Targets        string      `yaml:"targets"`
+	Headers        string      `yaml:"headers"`
+	QRCode         string      `yaml:"qrcode"`
+	ImageURL       string      `yaml:"imageURL"`
+	QRCodeURL      string      `yaml:"qrcodeURL"`
+	Image          string      `yaml:"image"`
+	Html           string      `yaml:"html"`
+	Template       string      `yaml:"template"`
+	CaptureHost    string      `yaml:"captureHost"`
+	FileServerHost string      `yaml:"fileServerHost"`
 }
 
 func loadCfg(path string, cfg any) {
