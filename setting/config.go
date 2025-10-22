@@ -22,7 +22,8 @@ type Config struct {
 	Image          string      `yaml:"image"`
 	Html           string      `yaml:"html"`
 	Template       string      `yaml:"template"`
-	CaptureHost    string      `yaml:"captureHost"`
+	CaptureProxy   string      `yaml:"captureProxy"`
+	CaptureWifi    string      `yaml:"captureWifi"`
 	FileServerHost string      `yaml:"fileServerHost"`
 }
 

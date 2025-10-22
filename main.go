@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/vpxuser/proxy"
-	"hijack-server/extra"
+	"hijack-server/extra/capture"
+	"hijack-server/extra/fs"
 	"hijack-server/handler"
 	"hijack-server/hook"
 	"hijack-server/setting"
@@ -13,8 +14,9 @@ func init() {
 }
 
 func main() {
-	go extra.CaptureServer()
-	go extra.FileServer()
+	go fs.FileServer()
+	go capture.CaptureProxy()
+	go capture.CaptureWifi()
 	hijackServer()
 }
 

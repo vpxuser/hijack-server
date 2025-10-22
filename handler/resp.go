@@ -84,11 +84,14 @@ func Response(resp *http.Response, ctx *proxy.Context) *http.Response {
 
 	//json格式化
 	if strings.Contains(contentType, "application/json") {
-		pettyBody, _ := json.MarshalIndent(json.RawMessage(body), "", "  ")
-		resp.ContentLength = int64(len(pettyBody))
-		resp.Body = io.NopCloser(bytes.NewBuffer(pettyBody))
-	} else {
-		resp.Body = io.NopCloser(bytes.NewBuffer(body))
+		pettyBody, err := json.MarshalIndent(json.RawMessage(body), "", "  ")
+		if err != nil {
+			resp.ContentLength = int64(len(body))
+			resp.Body = io.NopCloser(bytes.NewBuffer(body))
+		} else {
+			resp.ContentLength = int64(len(pettyBody))
+			resp.Body = io.NopCloser(bytes.NewBuffer(pettyBody))
+		}
 	}
 
 	dump, _ := httputil.DumpResponse(resp, true)

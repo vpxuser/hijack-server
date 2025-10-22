@@ -13,5 +13,6 @@ image: config/hijack.png
 html: config/hijack.html
 targets: config/target.list
 template: config/template.html
-captureHost: 0.0.0.0:8080
+captureProxy: 0.0.0.0:48080
+captureWifi: 0.0.0.0:58080
 fileServerHost: 0.0.0.0:8081
